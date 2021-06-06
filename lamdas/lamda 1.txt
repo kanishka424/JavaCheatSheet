@@ -1,4 +1,4 @@
-1.creating a thread
+1.creating a thread(1st video)
 
 ANONYMOUS-
 Thread thread1=new Thread((new Runnable(){
@@ -19,7 +19,7 @@ and there is only one unimplemented method(a functional interface),which is "run
 
 
 
-2.COMPARATOR interface lambda 
+2.COMPARATOR interface lambda (2nd video)
 
 ANOYMOUS-
 COllections.sort(employees,new Comparator(){
@@ -38,10 +38,186 @@ COllections.sort(employees,(Employee emp1,Employee emp2 )->{
 
 
 NOTE
-this can be further simplifeid ,we doesn't need to provide types to lamda fucntions because "employees"(the first parameter tells it to compiler)
+1.this can be further simplifeid ,we doesn't need to provide types to lamda fucntions because "employees"(the first parameter tells it to compiler)
 
 
 LAMDA (simplifed)-
 COllections.sort(employees,(emp1, emp2 )->{
 				emp1.getName().compareTo(emp2.getName())
 				}
+
+
+2.we can assign a lamda expression to a varible and use
+empComparator=(emp1, emp2 )->{emp1.getName().compareTo(emp2.getName())}
+
+Collections.sort(employees,empComparator}
+				}
+
+
+
+
+3.(third video)
+
+
+we can assign a lamda expression to a varible and use
+
+
+class AnotherClass{
+ public String doSomething(){
+UpperConcat uc=(s1.s2)->{
+sout("The lamda expressions calss is"+getClass().getSimpleName());//this prints "AnotherClass"
+String result=s1.toUpperCase()+s2.toUpperCase();
+retrn result;
+}
+
+sout("The AnotherClass name is"+getClass().getSimpleName());
+retur Main.doStringStuff(uc,"String1","String2");
+}
+
+
+Note 
+1.why does lamda expression prints "AnotherClass" for class name?
+lamda expression isn't a class hen the code runs an anonymus instance isn't 
+created instead the lambda is created like a nested block of code it shares 
+the same scope as nested scope.
+2.when we print the class name inside an anonymous class it won't print anything
+(see video for further)
+3.Why we can't use local varibles defined outside in an anonymous class to do so we need to declare it as final?video 3 /time-12.00
+there is a bit of theory involved in point 3 should look
+
+
+
+4.fourth video
+
+how local variables are treated by lamdas
+
+
+      for(Employee employee : employees) {
+           System.out.println(employee.getName());
+           System.out.println(employee.getAge());
+       }
+
+        System.out.println("******************");
+
+        Employee employee;
+
+       for(int i=0; i<employees.size(); i++) {
+            employee = employees.get(i);
+            System.out.println(employee.getName());
+           new Thread(() -> System.out.println(employee.getAge())).start();
+
+
+
+*the first varible works since employee varible is decalred inside loop and for each iteration it wont change
+but the second loop won't since employee varible decalared outside we are chaning the value in lamda
+
+
+
+5.fifth video
+
+*Consumer interface-Accepts a parameter and do some action but doesnt return anything
+(this is also a functional interface)
+
+*employees is an Arraylist
+
+employees.forEach(employee->{
+			sout(employee.getName());
+			sout(employee.getAge());
+			});
+
+we have passed a Consumer class to forEach() the ArrayList.forEach() is introduced in java 8
+
+
+*Predicate interface
+accepts an argument and return "false" or "true" 
+this is also a functional interface and the method we implement is test()
+We are evaluating if conditions,etc..
+
+
+this can'tbe used with list.forEach() beacause it expects a Consumer interface
+
+privste static void printEmployees(List<Employee> employees,
+					String ageText,
+					Predicate<Employee> ageCondition){
+					
+					sout(ageText);
+					for(Employee employee:employees){
+					if(ageCondition.test(employee)){
+					sout(employee.getName();
+
+					}
+				}
+
+
+		}
+
+
+
+
+
+printEmployees(employees,"Employee over 30",employee->employee.getAge()>30);
+
+printEmployees(employees,"Employee over 30 and under ",employee->employee.getAge()<=30);
+
+
+
+
+
+
+6.sixth video mor on predicates contd.....
+
+We can replace  lamda with anonymous class also
+
+printEmployees(employees,"Employee less than 25  ",new Predicate<Employee>(){
+								@Override
+								public boolean test(Employee employee){
+									return employee.getAge()<25;
+									}
+								})
+
+
+			there are also non-generic interfaces
+
+1.IntPredicate
+
+IntPredicate intp=i-> i > 15;
+sout(intp.test(10))//this wiil return "false"
+
+
+
+we can chain Predicates together
+
+
+
+IntPredicate greterThan15= i -> i >15;
+IntPredicate lessThan100=i -> i < 100;
+
+
+
+
+****sout(greterThan15.and(lessThan100).test(50)) //this returns true
+//and() is important here
+//and() is a default method
+
+***
+	or()
+	and()
+	negate()
+	methods can be chained together
+ 
+
+
+
+
+*Supplier Interface//should study easy
+doesnt take argument but returns value
+
+
+Random random=new Random();
+Supplier<Integer> randomSupplier =()->random.nextInt(1000);
+for (int i=0;i<0;i++){
+sout(randomSupplier.get());
+}
+
+
+
