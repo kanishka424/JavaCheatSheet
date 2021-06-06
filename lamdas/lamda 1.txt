@@ -1,0 +1,47 @@
+1.creating a thread
+
+ANONYMOUS-
+Thread thread1=new Thread((new Runnable(){
+		@Override
+		public void run(){
+		sout("printing from lambda")
+		}).start();
+
+
+
+LAMBDA-
+Thread thread1=new Thread(()->sout("printing from runnable"))
+				.start()
+
+NOTE
+compiler knows the thread has a constructor which takes in a runnable interface
+and there is only one unimplemented method(a functional interface),which is "run()" here
+
+
+
+2.COMPARATOR interface lambda 
+
+ANOYMOUS-
+COllections.sort(employees,new Comparator(){
+				@Override
+				public int compare(Empolyee emp1,Employee2 emp2){
+				return emp1.getName().compareTo(emp2.getName())
+
+				}	
+				}
+				
+
+LAMDA-
+COllections.sort(employees,(Employee emp1,Employee emp2 )->{
+				emp1.getName().compareTo(emp2.getName())
+				}
+
+
+NOTE
+this can be further simplifeid ,we doesn't need to provide types to lamda fucntions because "employees"(the first parameter tells it to compiler)
+
+
+LAMDA (simplifed)-
+COllections.sort(employees,(emp1, emp2 )->{
+				emp1.getName().compareTo(emp2.getName())
+				}
