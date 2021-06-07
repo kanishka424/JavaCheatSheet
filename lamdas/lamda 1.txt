@@ -75,6 +75,11 @@ retur Main.doStringStuff(uc,"String1","String2");
 }
 
 
+interface UpperConcat {
+    public String upperAndConcat(String s1, String s2);
+}
+
+
 Note 
 1.why does lamda expression prints "AnotherClass" for class name?
 lamda expression isn't a class hen the code runs an anonymus instance isn't 
@@ -218,6 +223,151 @@ Supplier<Integer> randomSupplier =()->random.nextInt(1000);
 for (int i=0;i<0;i++){
 sout(randomSupplier.get());
 }
+
+
+
+7.7th video, Function
+
+**Intrface Function <T,R>
+
+T-the type of the input to the function
+R-the type of the result of the function
+
+*This is a functional interface and can therefore be used as the assignment target for a lambda expression or method reference.
+apply() is the unimplmented method()
+
+public interface Function<T,R>
+Represents a function that accepts one argument and produces a result.
+This is a functional interface whose functional method is apply(Object).
+
+
+*Represents a function that accepts one argument and produces a result.
+
+
+Intrface Function useful with call backs watch 10.40 of video
+
+
+e.g-1.(SIMPLER EXAMPLE)
+
+Function <Employee,String> getLastName=(Employee employee)->{//THE FUNCTIONAL INTERFACE WITH LAMBDA
+ return employee.getName().subString(employee.getName().indexOf(' ')+1);
+}
+
+
+getLastName.apply(employees.get(1))//HOW TO USE IT
+
+
+e.g2.(Long but EAASY)
+
+Function <Employee,String> getLastName=(Employee employee)->{//THE FUNCTIONAL INTERFACE 1 WITH LAMBDA
+ return employee.getName().subString(employee.getName().indexOf(' ')+1);
+}
+
+Function <Employee,String> getFirstName=(Employee employee)->{//THE FUNCTIONAL INTERFACE 2 WITH LAMBDA
+ return employee.getName().subString(0,employee.getName().indexOf(' '));
+}
+
+
+Random random=new Random();
+for(Employee emp:employees){
+	for(Employee employee: employees){
+	if(random1.nextBoolean()){
+	sout(getAName(getFirstName,employee));
+	}else{
+	sout(getAName(getLastName,employee));
+	}
+	}
+
+}
+
+
+
+private static String getName(Function<Employee,String> getName,Employee employee){//this is just a static method to call the lambda function (not inteerfaces beacuse we used lambda)
+ 	retrun getName.apply(employee);
+}
+
+
+
+
+
+WHEN USING LAMDA WE CAN RUN THE CODE WITHOUT CREATEING A AN INTERFACE AND A CLASS THAT IMPLEMENTS 
+
+
+8. Chaining functions
+
+**andThen()
+
+Function<Employee,String> upperCase=employee->employee.getName().toUpperCase();
+
+Function<String,String> firstName=name->name.subString(0,name.indexOf(' '));
+Function chainedFunction=upperCase.andThen(firstName);
+
+chainedFunction.apply(employee.get(0));
+
+
+
+****compose()==OPPOSITE of "andThen()"
+
+
+If we want to concate firstName and age can we chain?no because the function interface only accepts one argument
+
+****so we need to use BiFunction  Interface
+which can take two arguments 
+
+e.g-BiFunction <String,Employee,String> concateAge=(String name,Employee employee)
+							->{
+								return name.concate(" "+employee.getName())
+
+
+
+we can't chain BiFunction interfaces because because BiFunction expects two arguments
+and when we chain the function result of one function becomes the argument to other  function 
+
+BUT BiFunction interface can be at the begining of  chain using it's andThen()
+
+and also BiFunction doesnt have compose()
+
+so insted of chaining we have to upperCase and concate in two steps
+
+e.g-
+
+String upperName=upperCase.apply
+				(employees.get(0))
+
+sout(concateAge.apply(upperName,employee.get(0))
+
+
+
+UNARY OPERATOR INTERFACE
+accepts one parameter of a specific type and returns the same type of result
+LongUnaryOperator accepts Long and returns Long value
+
+This extends Function interface SO they can be CHAINED together like Function interfaces
+
+e.g:-
+
+IntUnaryOperator incBy5= i -> i+5;
+sout(incBy5.applyAsInt(10)); 
+
+
+
+
+*WATCH THE SUMMARY OF FUNCTION PACKAGE INTERFACES
+
+Consumer can also be chained but no use
+
+
+check the documentaion
+
+
+
+
+
+
+
+9.Streams
+
+
 
 
 
