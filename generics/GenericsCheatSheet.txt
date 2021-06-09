@@ -1,0 +1,209 @@
+1.Generics Introduction(1st video)
+
+allows us takes class,interface and methods that takes types as parameters,called "Typed" parameters
+
+e.g- without using Generics
+
+ArrayList items=new ArrayList();
+
+items.add(1)
+items.add(2)
+    .
+    .
+    .
+    .
+
+
+    the "items" can contain anything
+
+private static voidprintDoubled(ArrayList<Integer> n){
+    for(Object i:n){
+    sout((Integer)i*2)//we have to do the casting if we dont use Generics
+    }
+
+    }
+
+
+    items.add("John")//even this is possible no red indications are shown
+    //but if we loop and try to cast to an Integer like above it would put a ClassCastException
+    //It doesnt show until run time
+    //prior to java 1.5 this happened but due t backward compatibility they kept it
+
+
+    E.g- With Generics
+
+
+    ArrayList<Integer> items=new ArrayList<>();
+
+    items.add(1)
+    items.add(2)
+        .
+        .
+ items.add("John")//this will show an error this time fail to compile ,doesnt fail run time
+
+
+ good practice -try to get over the warning
+
+
+ private static voidprintDoubled(ArrayList<Integer> n){
+     for(int i:n){//this time we take out ints
+     sout(i*2)//we dont have to cast this time
+     }
+
+     }
+
+
+
+
+ 2.Our Generic Class(2nd video)
+
+ Picking up bugs at compile time is far more easy
+
+    ArrayList<Player> members=new ArrayList<>();
+
+
+
+
+ 3.Our Generic Class 2(3 rd video)
+
+
+
+we should let each team accept a particuler palyers
+e.g- football team only accept footballers not base ball players
+
+to do this we can create class for each team (football team,baeballteam,etc..)
+but we would be rewriting the code which is bacd
+
+SO in team class
+
+1.First we will update class declaration to add type parameter
+
+
+public class Team<T>{
+
+}
+
+
+2.then  the "memebers" ArryList  insted of "Player" generic type  we will change
+"T"
+
+
+ArrayList<T> memebers-new ArrayList<>();
+
+
+
+
+3.the change addPlayer(Player player)
+
+
+public boolean addPlayer(T player){
+//sout(player.getName())//now this will show an error  because there is no way for Java to know T is type "Player"
+//therefor just for now
+sout((Player)player.getName())//temporary solution
+
+}
+
+
+4.Now in main
+
+Team<FootballPlayer> adelaidCrow=new Team("Adelaid Crow");
+//Now this will only let you add football players
+
+
+
+Problem
+Our Team class's type parmeter "T" can be supplied any type even a "String" or any object, which is
+wrong
+
+
+Team<String> brokenTeam=new Team<>("This won't work")//this can't be allowed
+brokenTeam.add("no-ne")//this will put an error because inside we are trying to cast to "Player"
+                        //so we have to  make sure Team class and sub-classe only take "Player"
+
+
+           ANSWER-
+           RESTRICTING THE TYPES THAT CAN BE PROVIDED FOR "T" ARGUMENT
+
+ public class Team(T extends Player) {//now only parameters extending from "Player" is accepted
+
+
+ }
+
+Team<String> brokenTeam=new Team<>("This won't work")//Now this wil show an error
+
+"T extends Player"-Player is the upper bound of "T"
+
+
+Now also in addPlayer(T player) we don't need to cast
+
+sout((Player)player.getName()) is NOW sout(player.getName())
+BECAUSE JAVA NOW KNOWS THAT "T" EXTENDS FROM "Player"
+
+
+**Argument passed for type parameter can be a class or an interface
+**Interface also can use Typed parameters that will allow the class or sub -classes only
+
+
+**Java allow multiple bounds we can say class "T" extends player,Manager and  Coach also
+*No Multiple inheritance law still applies you only can extend sfrom several interfaces not classes
+**If you have multiple bounds the Class must be first to extend
+
+e.g- public class Team<T extends Player & Coach & Manager>//we didn't continue with Coach & Manager
+Class-Player
+Interfaces-Coach and Manager
+
+
+but in Team classe's method now you have to check what types of objects you are dealing with
+
+
+time 14.30-listen again
+
+
+
+Now aa football team can't compete with baseball team so we add type parameter in matchResult(Team opponent,int ousrScore,int theirScore)
+
+Answer-matchResult(Team<T> opponent,int ousrScore,int theirScore)
+
+
+4.Our Generrics Class Part 3
+
+
+adding Comparable
+* when adding Comparable we need to compare with same kind of team
+e.g football team with another football team not with a baseballteam
+therefor
+
+.......implements Comparable<Team<T>>
+
+public class Team<T extends Player> implements Comparable<Team<T>>{
+
+}
+
+
+*****if we use ".......implements Comparable<Team>" instead of "<Team<T>>"
+
+when we implement compareTo() we won't be able to say only specific temas to compare
+e.g-only football teams not football teams and baseball teams
+
+
+public int compareTo(Team<T> team){
+if(this.ranking()>team.ranking()){
+ return 1;
+}else if(this.ranking()<team.ranking()){
+return -1
+}else{
+ return 0;
+}
+
+}
+
+if we didn't give typed parameters for Comparable the
+compareTo method would be like
+
+public int compareTo(Object obj ){
+
+}
+
+Collections.sort(teams)
+
+
