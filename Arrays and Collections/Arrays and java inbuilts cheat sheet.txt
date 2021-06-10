@@ -1,0 +1,161 @@
+Arrays is a data structure that allows you to store sequence of same type data
+array of ints
+array of Employees
+array of Strings
+
+
+
+Creating an Array is similar to creating a regular varible
+
+int[] myIntArray;
+myIntArray=new =new int[10];
+
+
+ALSO
+
+int[] myIntArray=new int[10];
+
+
+assigning values
+
+myIntArray[5]=50;
+
+sout(myIntArray[5])//will print 50
+
+if we want to initalize an Array with values
+
+int myIntArray={1,2,3,4,5,6,7,8,9,10}//use curly braces and size is infered
+
+myIntArray[2]=3;
+
+1.Arrays (first video)
+ALSO we can use for loop for this
+
+int[] myIntArray=new int[10];
+
+
+for(int i=o;i<myIntArray.length;i++){
+myIntArray[i]=i*10;
+}
+
+
+arrays has property called "length" not a  method to get the size
+
+
+
+
+2.Array Recap (3rd video)
+
+the default values of numeric array elements are set to ZERO
+for boolean they would be initalized to "False"
+For String or other objects it would be "null"
+
+ArrayIndexOutOfBoundException-accesing idex out of range
+
+[]-array access operator
+
+*new-creates the array and initalize the array elements to their defaults
+
+
+
+3.Reference Types and Value Types (4th video)
+
+*****all primitive types are value type==all primitive types hold a value
+
+VALUE TYPE
+
+e.g-
+        int a=10;
+        int b=a;
+        sout(a)//10
+        sout(b)//10
+
+
+        b++
+
+         sout(a)//10
+         sout(b)//11  //IMPORTANT here a and b holds two separate values
+
+
+VALUE TYPE
+
+**when we initalize a varible a memeory is allocated
+***when we assign that varible to a another varible the value is copied directly
+and two varibles work independent of each other
+
+
+
+
+REFERENCE TYPE
+
+type array are Reference types
+
+Reference holds Reference to object but not the object itself
+
+
+***Arrays.toString(myIntArray)//prints out an entire array like [33, 12, 98]
+
+int[] myIntArrray=new int[5];
+int anotherArray=myIntArray;//assign the above are to this varible
+
+
+Arrays.toString(myIntArray)///myIntArrray=[0,0,0,0,0,0]
+Arrays.toString(anotherArray)///anotherArray=[0,0,0,0,0,0]
+
+anotherArray[0]=1;
+
+
+Arrays.toString(myIntArray)///myIntArrray=[1,0,0,0,0,0]
+Arrays.toString(anotherArray)///anotherArray=[1,0,0,0,0,0]
+
+the cahnge to anotherArray is reflected in myIntArray because both
+variables  refer to same array
+
+
+
+
+
+
+anotherArray=new int[] {4,5,6,7,8}//this also work
+
+
+
+
+4.list and ArrayList part 1 (7th video)
+
+How we must resize an array
+
+
+private int[] baseData=new int[10];
+
+private static void resizeArray(){
+    int[] original    =baseData;
+    baseData=new int[12];
+    for(int i=0;i<original.length;i++){
+        baseData=original[i];
+    }
+}
+
+this would be tedious if yo have lot of elements and lot of resize
+
+
+
+
+
+
+
+
+ANSWER:-
+LIST
+its an interface
+
+Continue to List cheat sheet
+
+
+
+
+
+
+
+
+

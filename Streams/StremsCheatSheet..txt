@@ -3,7 +3,7 @@
 time 5.50-must listen
 
 
-Before Streams
+Before Streams {G24.G34.g45}
 
 list.forEach(number->{
 if(number.toUpperCase().startWith("G")){
@@ -27,7 +27,7 @@ list
     .map(String::toUpperCase)
     .filter(s->s.startWith("G"))
     .sorted()
-    .forEach(System.out::println)
+    .forEach(System.out::println).
 
 
 
@@ -86,7 +86,7 @@ Terminal operation
 
 
 
-                    list.forEach(System.out::println)-here we have not used Intermediate methods and this is correct
+                    list.stream().forEach(System.out::println)-here we have not used Intermediate methods and this is correct
 
 
 

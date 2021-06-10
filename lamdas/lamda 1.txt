@@ -48,7 +48,7 @@ COllections.sort(employees,(emp1, emp2 )->{
 
 
 2.we can assign a lamda expression to a varible and use
-empComparator=(emp1, emp2 )->{emp1.getName().compareTo(emp2.getName())}
+Comparator empComparator=(emp1, emp2 )->{emp1.getName().compareTo(emp2.getName())}
 
 Collections.sort(employees,empComparator}
 				}
@@ -131,6 +131,7 @@ employees.forEach(employee->{
 			});
 
 we have passed a Consumer class to forEach() the ArrayList.forEach() is introduced in java 8
+accept() is the method we implement here
 
 
 *Predicate interface

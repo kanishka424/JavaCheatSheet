@@ -1,0 +1,97 @@
+1.18th video (linked list part 1)
+
+Java allocates 4 bytes of memory to each integer
+4 bytes=the memeory it takes to store the highest integer
+
+
+we can calcculate the address of an element basesed on base address
+e.g- if base adress =100
+index 5 adress=100+(4*5)=120
+
+reference- LinkedListPic1
+
+
+Double uses 8 bytes 
+
+
+
+String or objectss doesnt work like that
+they vary
+
+so when we are storing Strings or objects in an array we keep reference not 
+the actual object in a sequential manner 
+reference-ArrayObjectStorePic1
+
+
+
+even though Strings or Objects are scatered all' over 
+***values will print from 0 to 
+e.g-Tim,Austrlia,Java........Array,ArrayList
+reference-ArrayObjectStorePic1
+
+
+
+***In Arraylist items would shift when we remove or add(from middle or beginning)
+This is overwhelming when we have millions of data
+time 12.33
+
+
+ANSWER-LinkedList
+To over come the Disadvantage of shifting in an Arraylist
+
+the Node in L.L holds the value and a pointer next to next node
+
+how to delete a node in Linked list is simply assign the "next" pointer pointing
+to it to what its "next" pointer is pointing
+
+reference-LinkedListRemove
+
+****************
+LinkedList<string> placesToVisit=new LinkedList<String>();
+
+add()
+placesToVisit.add("Sydney")
+
+
+remove(int index)
+printList.remove(4)
+
+
+
+ITERATOR
+Another way of going through a LinkedList,ArrayList,Array,etc...
+
+***Iterator<String> i=LinkedList.iterator();
+
+    while(i.hasNext()){
+        sout(i.next())
+}
+
+
+Iterator Methods
+
+
+**hasNext()-returns Boolean 
+
+**next()- returns the current element and move to next
+
+
+***HERE WE MAINTAIN INSERTION ORDER
+
+how to sort the LinkedList
+
+
+private static boolean addInOrder(LinkedList<String>,String newCity){
+    ListIterator<String> stringListIterator=linkedList.iterator();//here its ListIterator gives more flexibility
+
+    while(stringListIterator.hasNext()){
+        int comparison=stringListIterator.next().compareTonewCity;//comparing
+
+    }
+
+}
+
+
+previous() - is the reason we use ListIterator
+
+reference-ListIteratorPic

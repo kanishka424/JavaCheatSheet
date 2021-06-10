@@ -1,0 +1,83 @@
+1.List and ArrayList part 1 7th video
+ANSWER:-
+LIST
+its an interface
+
+ArrayList extends List interface
+its an resizable array
+it doesnt only handle number of elements but also the memory allocated
+
+
+**private ArrayList<String> groceryList=new ArrayList<>();
+
+Arraylist Methods
+
+add() //how we can add elements to an arrayList
+groceryList.add("Item")
+
+size()//how we get the number of elements in the arrayList
+groceryList.size()=1//for now
+
+get()//how to get items from an arraylist
+groceryList.get()
+
+public boolean  remove(int index)
+groceryList.remove(index)
+
+
+public boolean remove(Object o)
+//Removes the first occurrence of the specified element from this list, if it is present
+groceryList.remove(Obj)
+
+
+
+**no remove method for primitive types use index
+
+
+
+5.array List part 2(video 8)
+
+
+contains()
+public boolean contains(Object O)
+public String findItem(String item){
+   boolean exists=groceryList.contains(searchItem)
+}
+
+indexOf()//***IMPORTANT****Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
+int postion=groceryList.indexOf();
+
+if(positon>=0){
+return groceryList.get(positon)
+}
+
+
+6.9th video
+
+set(int index, E element)=public E set(int index,
+                                       E element)
+Replaces the element at the specified position in this list with the specified element.
+Returns:
+the element previously at the specified position
+
+
+
+
+
+
+addAll()
+newArrayList.addAll(groceryList.getGroceryList())
+
+SAME CAN BE DONE AT INITALIZATION
+
+ArrayList<String> nextArray=new ArrayList<String>(groceryList.getGroceryList());
+
+
+
+toArray()
+String[] myArray=new String[groceryList.getGroceryList().size()];
+myArray=groceryList.getGroceryList().toArray(myArray);
+
+
+
+

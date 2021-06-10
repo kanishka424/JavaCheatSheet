@@ -1,0 +1,82 @@
+14 Autoboxing and unboxing
+
+
+<
+We CAN'T use primitive type in an arraylist
+
+e.g-ArrayList<int> intArrayList=new ArrayList<int>();//CANT DO!!
+
+
+What we ca do is Wrap the int value inside a class and add to arraylist
+
+e.g-
+class IntClass{
+    private int myValue;
+
+    publc IntClass(int myValue){
+        this.myValue=myValue;
+    }
+
+}
+
+ArrayList<IntClass> intClassArrayList=new ArrayList<IntClass>();
+intClassArrayList.add(new IntClass(54))//this is the solution for previous problem
+
+
+===========but it was before Autoboxing===========
+
+with autoboxing java has wrapper classes for primitive types
+
+
+Integer integer=new Integer(54);//INBUILT WRAPPER CLASSES
+Double doubleValue =new Double(12.25)
+
+
+ArrayList<Integer> intArrayList=new ArrayList<Integer>()//can be done
+
+
+intArrayList.add(integer.valueOf());//takes int (primitve) value of Integer class
+                                        and it is automaticallt converted to Integer class
+                                        in order to let intArrayList to use it
+                                        this is BOXING
+
+
+
+
+UNBOXING-taking back and converting to a primitive type
+intArrayList.get(i).intValue();
+
+
+BUT ITS EVEN SIMPLER
+
+Integer myIntValue=56;//this WORK!!!!
+//at ccompile time 56 --->new Integer(56)
+
+
+int myInt=myValue
+//at compile time myValue---->myInt.intValue()
+
+
+
+double value=MyDoubleValue.get(i).doubleValue();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

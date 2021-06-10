@@ -1,0 +1,176 @@
+1.Exceptions,video 1
+
+1.ArithematicException
+
+     int y=0;//this cause ArithematicException
+
+//IWthout exception handling
+//program will crash during runtime
+private static int divideEAFP(int x,int y){
+  
+       return x/y;
+   }
+
+
+
+//Exception handling
+private static int divideEAFP(int x,int y){
+   try {
+       return x/y;
+    }catch(ArithematicException e){
+        return 0;
+    }
+
+}
+
+
+
+
+
+***converting to integer
+Integer.parseInt(input);
+
+
+//e.g-when expecting an int but you entered a String
+2.InputMismatchException
+ private static int getIntEAFP(){
+     scanner s=new Scanner(System.in);
+     sout("Please enter an integer");
+     try{
+         return s.nextInt();//returns current int value and moves on
+     }catch(InputMismatchException e){
+        return 0;
+     }
+
+ }
+
+
+2.stack  trace 2,Video 2
+
+
+Exception -an event that occur during execution of program that disrupts the flow
+
+
+rather than catching "Excception" goood to be more Generic /specific
+like
+
+
+
+A method can  decalare an Exception can be thrown 
+once it is thrown java run time would be passed to next method on stack to handle till method that can handle
+
+
+***
+//how to throw an Exception
+throw new InputMismatchException();
+
+**********IMPORTANT
+Throwable->Exception->RuntimeException->NoSuchElementException->InputMismatchException
+
+
+
+3.Catching and throwing Exception
+
+**************************************************
+//How to tell if user has entered a wrong input and to let enter 
+//a new value without disrupting the flow
+
+private static int getInt(){
+Scanner s=new Scanner(System.in);
+sout("Please enter an integer");
+
+while(true){//How to let user enter again after a wrong input
+    try{
+        return s.nextInt();
+    }catch(InputMismatchException e){
+        s.nextLine();
+        sout("Please enter digit 0 t0 9")//How to let user enter again after a wrong input
+    }
+}
+
+
+}
+
+
+
+
+try block is same as any other block in java soif you need to use same varible you are 
+using in try{} also in catch{} declare the varible just outside the try{}
+
+
+**LESS CODE IN catch{} LESS CHANCE ANOTHER ERROR THROWN
+
+//BUT THIS getInt() IS VERY WRONG!!!!!!!!!!!!!!!!!!!
+//Only for demonstration purposes
+
+
+
+***********************
+//Throwing an exception from catch{}
+
+intx,y;
+try{
+    x=getInt();
+    y=getInt();
+}catch(NoSuchElementException e){
+    throw new ArithematicException("No suitable input")//Throwing an exception from catch{}
+}
+sout(x+" "+y);
+try{
+    return x/y;
+}catch(ArithematicException e){
+    throw new ArithematicException("attempted to divide by zero")//Throwing an exception from catch{}
+}
+}
+
+
+4.Catching Multiple Exceptionas
+
+WE can let catch Multiple exceotions
+We would chnage the above code to have catch{} together
+
+try{
+    x=getInt();
+    y=getInt();
+        return x/y;
+
+    sout(x+" "+y);
+}catch(ArithematicException e){
+    throw new ArithematicException("attempted to divide by zero")//Throwing an exception from catch{}
+}catch(NoSuchElementException e){
+    throw new ArithematicException("No suitable input")//Throwing an exception from catch{}
+}
+
+
+//***HOW TO CATCH Multiple EXCEPTIONS
+ 
+ try{
+     int result=divide();
+     sout(result);
+ }catch(ArithematicException|NoSuchElementException e){//***HOW TO CATCH Multiple EXCEPTIONS introduced in java 7
+     sout(e.toString())
+ }
+
+
+
+ ****More specific /generic excption must be at top
+ e.g-catch(ArithematicException e) must come before catch(Exception e)
+
+
+
+
+IMPORTANT***********************
+
+Remember the biggest difference between checked and unchecked exceptions is that checked exceptions are forced by compiler and used to indicate exceptional conditions that are out of the control of the program 
+(for example, I/O errors), while unchecked exceptions are occurred during runtime and used to indicate programming errors (for example, a null pointer).
+5th and 7th video must be done CONTD...........
+
+
+
+
+EXCEPTION
+1.ArithematicException
+2.InputMismatchException
+3.NoSuchElementException
+4.RuntimeException
+5.Exception
