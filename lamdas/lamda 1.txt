@@ -303,7 +303,7 @@ Function<Employee,String> upperCase=employee->employee.getName().toUpperCase();
 Function<String,String> firstName=name->name.subString(0,name.indexOf(' '));
 Function chainedFunction=upperCase.andThen(firstName);
 
-chainedFunction.apply(employee.get(0));
+*****chainedFunction.apply(employee.get(0));
 
 
 

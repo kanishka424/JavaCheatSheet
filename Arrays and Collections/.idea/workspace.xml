@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="565ca1df-fa01-4ec6-827e-e2fb786ac769" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Streams/StremsCheatSheet..txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Streams/StremsCheatSheet..txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamdas/lamda 1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../lamdas/lamda 1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +21,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Spring boot and microservice cheat sheets/microservices/spring-boot-microservices-workshop" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -35,5 +35,11 @@
       <updated>1623250231272</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="932" y="172" key="FileChooserDialogImpl" timestamp="1623382354668">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="932" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1623382354668" />
   </component>
 </project>

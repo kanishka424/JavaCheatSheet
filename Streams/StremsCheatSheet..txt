@@ -122,3 +122,113 @@ count()-gives count in stream a terminal operator
 peek()-can be used insted of forEach() because forEach() is terminal method
 
 Intermediate methods doesnt work if there is no terminal method at the end of stream
+
+
+
+List<String> listEmails = listPersons.stream()
+                .map(p -> p.getEmail())
+                .collect(Collectors.toList());
+
+
+
+
+
+INTERMEDIATE METHODS
+map(p -> p.getEmail())
+.peek(System.out::println)
+sorted()
+distinct()
+
+
+TERMINAL METHODS
+
+count()
+collect(Collectors.toList());
+forEach()
+
+
+
+Non-Terminal Operations
+filter()
+map()
+distinct()
+sorted()
+peek()
+
+Terminal Operations
+anyMatch()
+collect()
+count()
+findFirst()
+min()
+max()
+sum()
+average()
+forEach()
+
+
+
+
+collect()
+collect(Collectors.toSet())
+collect(Collectors.toMap(Function.identity(), x -> String.valueOf(x)));
+collect(Collectors.toList())
+
+
+
+
+
+
+*****IMPORTNAT***EXCERCISE->https://blog.devgenius.io/15-practical-exercises-help-you-master-java-stream-api-3f9c86b1cf82
+
+
+Exercise 1 — Obtain a list of products belongs to category “Books” with price > 100
+
+List<Product> bookProducts=productRepos.findAlL().filter(product->product.getCategory.equalsIgnoreCase("books")).filter(product->product.getPrice()>100).Collect(Collecteors.toList())
+
+
+Exercise 2 — Obtain a list of order with products belong to category “Baby”
+
+ List<Order> result = orderRepo.findAll()
+        .stream()
+        .filter(o -> 
+          o.getProducts()
+          .stream()
+          .anyMatch(p -> p.getCategory().equalsIgnoreCase("Baby"))
+        )
+        .collect(Collectors.toList());  
+
+
+
+Excercise 3-Obtain a list of product with category = “Toys” and then apply 10% discount
+
+			List<Products> toys=productRepo.findAll().stream().
+					filter(product->product.getCategory().equalsIgnoreCase("Toys")).
+					map(toys->toy.setPrice(toy.getPrice()*0.9))
+					.collect(Collectors.toList())
+
+
+
+
+
+
+
+Exercise 4 — Obtain a list of products ordered by customer of tier 2 between 01-Feb-2021 and 01-Apr-2021
+
+List<Product> result = orderRepo.findAll()
+  .stream()
+  .filter(o -> o.getCustomer().getTier() == 2)
+  .filter(o -> o.getOrderDate().compareTo(LocalDate.of(2021, 2, 1)) >= 0)
+  .filter(o -> o.getOrderDate().compareTo(LocalDate.of(2021, 4, 1)) <= 0)
+  .flatMap(o -> o.getProducts().stream())
+  .distinct()
+  .collect(Collectors.toList());
+
+
+MYSOLUTION FOR EXCERCISE 4
+
+
+Set<Products> productList= OrderRepo.findAll().stream().filter(order -> order.getCustomer().equalsIgnoreCase("Tier2")).filter(order -> 01 - Feb - 2021 < order.getOrderDate() < 01 - Apr - 2021)
+													.map(order->order.getProducts()).collect(Collectors.toSet())
+
+

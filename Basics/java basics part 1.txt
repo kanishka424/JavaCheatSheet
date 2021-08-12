@@ -1,0 +1,20 @@
+$$$$$$$$$$$$$$$$$$THIS IS BASED ON slidenerd JAVA PLAYLIST ON YOUTUBE$$$$$$$$$$$$$$$$$$
+
+
+
+37 Java Methods Implicit and Explicit Parameters 
+
+
+Explicit Parameters
+
+e.g-public int getArea(int side)
+
+
+Implicit Parameters
+
+String s1="Hello"
+s1.length();//5
+
+depends on s1 value s1.length() value will change
+*the object on which the data is called is the impicit parameter
+ see vidoe
